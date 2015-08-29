@@ -1,0 +1,19 @@
+@import "ui-variables";
+
+#linter-inline {
+  background-color: lighten(@app-background-color-light, 25%);
+
+  &::before {
+    border-color: transparent transparent lighten(@app-background-color-light, 25%) lighten(@app-background-color-light, 25%);
+  }
+
+  .linter-message-item:not(.badge) {
+    height: 19px;
+    line-height: 19px;
+
+    .badge {
+      padding-bottom: 0.3em;
+      margin-top: -2px;
+    }
+  }
+}

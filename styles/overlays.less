@@ -1,0 +1,70 @@
+@import "ui-variables";
+
+atom-panel.modal, .overlay {
+  color: @text-color;
+  background-color: @app-background-color-light;
+  padding: @component-padding;
+  border: 1px solid @overlay-border-color;
+  box-shadow: 0 0 20px @black;
+  border-radius: @component-border-radius !important;
+  margin-top: 50px;
+  width: 700px;
+
+  atom-text-editor[mini] {
+    margin-bottom: @component-padding;
+  }
+
+  .select-list ol.list-group,
+  &.select-list ol.list-group {
+
+    background-color: @app-background-color-light;
+
+    li {
+      padding: @component-padding;
+
+      &.two-lines { padding: @component-padding/2 @component-padding; }
+
+      .status.icon {
+        float: right;
+        margin-left: @component-icon-padding;
+        &:before {
+          margin-right: 0;
+        }
+      }
+
+      &.selected {
+        .status.icon {
+          color: @text-color-selected;
+        }
+      }
+    }
+  }
+}
+
+autocomplete-suggestion-list {
+  .list-group li, .list-group li * {
+    height: 40px;
+    line-height: 40px;
+    font-family: "ConsolasKai", "Menlo", "Source Code Pro";
+    font-size: 18px;
+
+    .icon-letter {
+      font-size: 1em;
+      line-height: 1em;
+    }
+  }
+
+  .color-suggestion-preview {
+    height: 1.2em !important;
+  }
+
+  .select-list ol.list-group, &.select-list ol.list-group {
+    li {
+      background-color: lighten(@app-background-color, 5%);
+    }
+
+    li.selected {
+      background-color: @app-background-color-light;
+    }
+  }
+}

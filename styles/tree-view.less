@@ -1,0 +1,66 @@
+@import "ui-variables";
+
+.tree-view-line-height(@height) {
+  .list-group, .list-tree {
+    li {
+      &:not(.list-nested-item), &.list-nested-item > .list-item {
+        line-height: @height;
+        height: @height;
+      }
+      &::before {
+        line-height: @height;
+        height: @height;
+      }
+      span[class*="icon-"]::before {
+        margin-right: 10px;
+      }
+    }
+  }
+}
+
+.list-group .selected::before, .list-tree .selected::before {
+  height: 35px;
+}
+
+.tree-view {
+  font-size: @font-size;
+  background: @tree-view-background-color;
+  .tree-view-line-height(35px);
+
+  .selected:before {
+    background: @very-dark-gray;
+  }
+}
+
+.tree-view-resizer {
+  .tree-view-resize-handle {
+    width: 8px;
+  }
+}
+
+.focusable-panel {
+  opacity: 1;
+
+  &:focus {
+    background: @very-dark-gray;
+
+    .selected:before {
+      background: @background-color-selected;
+    }
+  }
+}
+
+[data-show-on-right-side=true] {
+  .tree-view .selected:before,
+  .focusable-panel {
+    box-shadow: inset 3px 0 0 rgba(0,0,0, .05);
+  }
+}
+
+.file-icons-tab-pane-icon atom-pane .tab-bar .tab .title[data-path]:before, .icon-file-text:before {
+  color: @orange !important;
+}
+
+.icon-book[data-name="README.md"]:before, .icon-book[data-name="Readme.md"]:before, .icon-book[data-name="readme.md"]:before {
+  color: @orange !important;
+}
