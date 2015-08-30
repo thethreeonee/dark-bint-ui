@@ -6,6 +6,7 @@
   li:not(.list-nested-item),
   li.list-nested-item > .list-item {
     .text(normal);
+    font-size: 16px;
   }
 
   .generate-list-item-text-color(@class) {
@@ -42,13 +43,27 @@
   li:not(.list-nested-item).selected,
   li.list-nested-item.selected > .list-item {
     .text(selected);
+    font-size: 16px;
+  }
+
+  li.list-item {
+    height: 35px;
+    line-height: 35px;
+  }
+
+  li .icon::before {
+    top: -1px;
   }
 }
 
 .select-list ol.list-group,
 &.select-list ol.list-group {
   li.two-lines {
-    .secondary-line { color: darken(@text-color, 20%); }
+    .secondary-line {
+      color: darken(@text-color, 20%);
+      font-size: 14px;
+    }
+
     &.selected .secondary-line {
       font-weight: normal;
       color: lighten(@text-color, 30%);
@@ -65,7 +80,7 @@
   li.selected {
     border-radius: 3px;
     background-color: @app-background-color-very-light;
-    &:before{ display: none; }
+    &::before { display: none; }
   }
 
   &.mark-active{
@@ -104,10 +119,13 @@
   border: 1px solid @overlay-border-color;
 
   atom-text-editor {
+    font-size: 14px;
     margin-bottom: @component-padding/2;
   }
 
   .list-group li {
+    height: 35px;
+    line-height: 35px;
     padding-left: @component-padding/2;
   }
 }
