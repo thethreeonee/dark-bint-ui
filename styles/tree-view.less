@@ -1,5 +1,20 @@
 @import "ui-variables";
 
+.tree-view-scroller {
+  background: #20222c;
+  padding-bottom: 30px;
+
+  &:after {
+    content:"";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #0f111b;;
+    height: 30px;
+  }
+}
+
 .tree-view-line-height(@height) {
   .list-group, .list-tree {
     li {
