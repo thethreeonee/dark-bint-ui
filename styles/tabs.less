@@ -3,13 +3,11 @@
 @modified-icon-width: 8px;
 @tab-skew: 30deg;
 @tab-top-padding: 0;
-@tab-bottom-border-height: 0;
-@tab-border: 1px solid @tab-border-color;
-@tab-bar-bottom-border-color: #111;
+@tab-top-border-height: 4px;
 @tab-max-width: 160px;
 
 .tab-bar {
-  height: @tab-height + @tab-top-padding + @tab-bottom-border-height;
+  height: @tab-height + @tab-top-padding + @tab-top-border-height;
   background: @tab-bar-background-color;
   padding: 0 10px 0 25px;
   overflow-x: auto;
@@ -19,59 +17,25 @@
     display: none;
   }
 
-  &:after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    height: @tab-bottom-border-height;
-    left: 0;
-    right: 0;
-    background-color: @tab-background-color-active;
-    pointer-events: none;
-  }
-
   .tab {
     position: relative;
-    top: @tab-top-padding;
+    top: 0;
     max-width: @tab-max-width;
     height: @tab-height;
     line-height: @tab-height;
-    padding: 0;
-    margin: 0 20px 0 5px;
+    padding: 0 20px;
     color: @text-color;
     font-size: 14px;
-
-    transition: color .1s ease-in;
-    border: none;
-
-    &, &:before, &:after {
-      height: @tab-height;
-    }
-
-    &:before, &:after {
-      content: '';
-      position: absolute;
-      top: 0px;
-      width: 25px;
-      height: @tab-height;
-    }
-
-    // left angled edge
-    &:before {
-      left: -14px;
-    }
-
-    // right angled edge
-    &:after {
-      right: -14px;
-    }
+    transition: border-top .1s ease-in;
+    border-top: @tab-top-border-height solid transparent;
 
     .close-icon {
       right: 0;
       z-index: 3;
-      text-align: right;
+      text-align: center;
       line-height: @tab-height;
       color: @text-color;
+      margin-right: 4px;
 
       &:hover {
         color: inherit;
@@ -93,23 +57,16 @@
       color: @white;
       position: relative;
       z-index: 1;
-      padding-right: 10px;
     }
   }
 
   .tab.active {
     z-index: 1;
     color: @text-color-highlight;
-    font-weight: bold;
+    border-top: @tab-top-border-height solid @cyan;
 
     .close-icon {
-      line-height: @tab-height - 1px;
       color: @text-color;
-    }
-
-    &, &:before, &:after {
-      background-color: darken(@blue, 5%);
-      height: @tab-height + 1px;
     }
   }
 
@@ -126,11 +83,11 @@
   }
 
   .placeholder {
-    height: @tab-height + @tab-top-padding + @tab-bottom-border-height;
+    height: @tab-height + @tab-top-padding + @tab-top-border-height;
     margin-left: -9px; // center between tabs
     pointer-events: none;
     &:after {
-      top: @tab-height + @tab-top-padding + @tab-bottom-border-height - 2px;
+      top: @tab-height + @tab-top-padding + @tab-top-border-height - 2px;
     }
   }
 }
